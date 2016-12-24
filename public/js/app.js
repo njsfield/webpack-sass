@@ -44,9 +44,12 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
-	__webpack_require__(5);
+	'use strict';
 
+	//Fetches base sass file to build style.css file to /public
+	__webpack_require__(1);
+	//Fetches base js file to build app.js file to /public
+	__webpack_require__(5);
 
 /***/ },
 /* 1 */
@@ -61,25 +64,36 @@
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const add = __webpack_require__(6);
-	const del = __webpack_require__(7);
+	'use strict';
 
-	console.log(add(del(3, 4),4)) // 6
+	// Webpack will resolve these dependencies
+	var add = __webpack_require__(6);
+	var del = __webpack_require__(7);
 
+	// ES6 will be transpiled, so string literal syntax here will be converted to string concatenation syntax
+	document.getElementById('body-text').innerHTML = 'Red text is great. Maths is great, for example 6 + 8 = ' + add(6, 8) + ' and 5 - 2 = ' + del(5, 2);
 
 /***/ },
 /* 6 */
 /***/ function(module, exports) {
 
-	module.exports = (x, y) => x + y;
+	"use strict";
 
+	/* Will be resolved and transpiled */
+	module.exports = function (x, y) {
+	  return x + y;
+	};
 
 /***/ },
 /* 7 */
 /***/ function(module, exports) {
 
-	module.exports = (x, y) => x - y;
+	"use strict";
 
+	/* Will be resolved and transpiled */
+	module.exports = function (x, y) {
+	  return x - y;
+	};
 
 /***/ }
 /******/ ]);

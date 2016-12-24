@@ -1,6 +1,7 @@
-@import 'variables';
+@import 'variables'; // Colors etc
 
 body {
-  color: $red;
-  background: $green;
+  color: $black; //Should be converted to #000000
+  background: white;
+  padding: 1em;
 }
